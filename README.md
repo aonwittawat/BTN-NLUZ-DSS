@@ -4,6 +4,7 @@
 The NLUZ Spatial Decision Support System aims to bring a geographic information system to a decision-support platform promoting the use of geographic information and not the GIS technologies. This system will understand the decision maker, data users, data, and types of decision to be enhanced and delivered.
 
 > #### WARNING: this is a work-in-progress...
+> This web app is developed based on a prototype originally created and hosted at https://tchencho12.wixsite.com/my-site-1.
 
 ## Disclaimer:
 - The boundaries and names shown, and the designations used on this map do not imply official endorsement or acceptance by the United Nations.
