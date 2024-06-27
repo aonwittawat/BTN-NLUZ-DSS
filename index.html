@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+  <script src="./assets/js/color-modes.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The NLUZ Spatial Decision Support System aims to bring a geographic information system to a decision-support platform promoting the use of geographic information and not the GIS technologies.">
+  <meta name="author" content="United Nations Satellite Centre (UNOSAT)">
+  <!-- ICON -->
+  <link rel="icon" href="./assets/favicon.ico" sizes="32x32" type="image/vnd.microsoft.icon">
+  <title>Home | National Land Use Zoning</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .bi {
+      vertical-align: -.125em;
+      fill: currentColor;
+    }
+
+    .btn-bd-primary {
+      --bd-violet-bg: #712cf9;
+      --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+      --bs-btn-font-weight: 600;
+      --bs-btn-color: var(--bs-white);
+      --bs-btn-bg: var(--bd-violet-bg);
+      --bs-btn-border-color: var(--bd-violet-bg);
+      --bs-btn-hover-color: var(--bs-white);
+      --bs-btn-hover-bg: #6528e0;
+      --bs-btn-hover-border-color: #6528e0;
+      --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+      --bs-btn-active-color: var(--bs-btn-hover-color);
+      --bs-btn-active-bg: #5a23c8;
+      --bs-btn-active-border-color: #5a23c8;
+    }
+
+    .bd-mode-toggle {
+      z-index: 1500;
+    }
+
+    .bd-mode-toggle .dropdown-menu .active .bi {
+      display: block !important;
+    }
+  </style>
+
+
+  <!-- Custom styles for this template -->
+  <link href="./assets/css/offcanvas-navbar.css" rel="stylesheet">
+</head>
+
+<body class="bg-body-tertiary">
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="check2" viewBox="0 0 16 16">
+      <path
+        d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+    </symbol>
+    <symbol id="circle-half" viewBox="0 0 16 16">
+      <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+    </symbol>
+    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+      <path
+        d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+      <path
+        d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z" />
+    </symbol>
+    <symbol id="sun-fill" viewBox="0 0 16 16">
+      <path
+        d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+    </symbol>
+  </svg>
+
+  <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
+      aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+      <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
+        <use href="#circle-half"></use>
+      </svg>
+      <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+      <li>
+        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+          aria-pressed="false">
+          <svg class="bi me-2 opacity-50" width="1em" height="1em">
+            <use href="#sun-fill"></use>
+          </svg>
+          Light
+          <svg class="bi ms-auto d-none" width="1em" height="1em">
+            <use href="#check2"></use>
+          </svg>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+          aria-pressed="false">
+          <svg class="bi me-2 opacity-50" width="1em" height="1em">
+            <use href="#moon-stars-fill"></use>
+          </svg>
+          Dark
+          <svg class="bi ms-auto d-none" width="1em" height="1em">
+            <use href="#check2"></use>
+          </svg>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto"
+          aria-pressed="true">
+          <svg class="bi me-2 opacity-50" width="1em" height="1em">
+            <use href="#circle-half"></use>
+          </svg>
+          Auto
+          <svg class="bi ms-auto d-none" width="1em" height="1em">
+            <use href="#check2"></use>
+          </svg>
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">
+    <div class="container-fluid">
+      <img class="me-3" src="./assets/images/NLCS-logo.png" alt="" width="50" height="50">
+      <a class="navbar-brand" href="#">National Land Use Zoning</a>
+      <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Maps</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./download.html">Downloads</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Projects</a>
+          </li>
+        </ul>
+        <button class="btn btn-outline-light px-3" type="button">Get in Touch</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <div class="p-4 p-md-4 rounded text-body-emphasis">
+      <div class="col-lg-12 px-0">
+        <h1 class="display-2 fw-bold">National Land Use Zoning Decision Support System</h1>
+        <h2 class="display-4 fst-italic">FROM GIS TO DECISION SUPPORT</h2>
+      </div>
+    </div>
+
+    <!-- CAROUSEL -->
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="./assets/images/carousel1.jpg" class="d-block w-100 h-50" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>About SDSS</h5>
+            <p>SDSS description</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="./assets/images/carousel2.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>About SDSS</h5>
+            <p>SDSS description</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="./assets/images/carousel3.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>About SDSS</h5>
+            <p>SDSS description</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <!-- SECTION NLUZ ZONES -->
+    <section class="p-4 p-md-4 text-body-secondary">
+      <h1>Thematic Layers / Zones</h1>
+      <p>The major thematic layers viz. 9 macro zones; 23 micro zones and 23 nano zones; relevant Right of Ways (RoW) or
+        buffers; LULC; and demography components have been considered for technical definitions as enlisted in the
+        following:</p>
+      <h4>Nine Macro, Twenty Three Micro and Twenty Three Nano Land Use Zones </h4>
+    
+    
+      <h2>Macro Zone 1: Agricultural Land</h2>
+      <p>Agricultural land refers to land devoted to crop production and livestock rearing to produce food, fiber and fuel
+        for human sustenance (DAO, 2023). It consists of four micro land use zones as follows:</p>
+      <ul>
+        <li>
+          <strong>Micro Zone 1.1. Kamzhing:</strong> Means agricultural land (with or without bench terraced) which can be
+          used for multiple agricultural purposes including dryland cropping (cereal crops, vegetables, MAPS), establishment
+          of orchards, plantation crops and improved pasture.
+        </li>
+        <li>
+          <strong>Micro Zone 1.2. Protected Chhuzhing:</strong> Means irrigated and bench terraced agricultural land that
+          are demarcated and mapped out in clusters to be protected and used for paddy cultivation only to ensure at least
+          35% rice self-sufficiency for all times to come. Protected chhuzhing will not be allowed for conversion or other
+          agricultural use (DoA, 2023).
+        </li>
+        <li>
+          <strong>Micro Zone 1.3. Regulated Chhuzhing:</strong> Means irrigated and bench terraced agricultural land that
+          are outside of Protected Chhuzhing, which can be used for paddy production (if owners are interested) and other
+          agricultural purposes as in Kamzhing (DoA, 2023).
+        </li>
+        <li>
+          <strong>Micro Zone 1.4. Agricultural Leased Land:</strong> Refers to productive state land leased for commercial
+          agriculture and livestock farming for a defined period of time with a right to use land but no ownership of land
+          (DoA, 2023).
+        </li>
+      </ul>
+    
+      <h2>Macro Zone 2: Rural Settlement</h2>
+      <p>Refers to settlement other than defined/ demarcated urban settlements, which includes residential and institutional
+        land used for dwellings or some form of rural habitations in clusters or scattered setups. It is also defined as
+        settlement for displaced populations settled on land outside of cities and towns and the population is often
+        dependent on agricultural and pastoral practices and has fewer community infrastructure systems than in urban
+        settlements (UNHRC, 2020).</p>
+      <ul>
+        <li>
+          <strong>Micro Zone 2.1. Residential Land:</strong> Means a registered land for dwelling house both in
+          Thromde/urban and rural areas (Land Act, 2007).
+        </li>
+        <li>
+          <strong>Micro Zone 2.2. Institutional Land:</strong> Means the registered land for office complexes, research
+          stations, academic, medical, and religious establishments (Land Act, 2007). Institutional land use within Thromde
+          boundary is classified under the urban zone.
+        </li>
+      </ul>
+    
+      <h2>Macro Zone 3: Sustainable Forest Management Area (SFMA)</h2>
+      <p>Refers to a designated area or region of the forests where the management practices and activities are carried out
+        in a manner that ensures the long-term health and productivity of the forest ecosystem while meeting the social,
+        economic, ecological, and cultural needs of present and future generations. Sustainable forest management involves
+        balancing the utilization of forest resources with the conservation and protection of forests, ecosystems,
+        biodiversity, and other environmental values. It includes scientific management areas such as FMU, working scheme,
+        CF and Local Forest Management (Forest and Nature Conservation Code of Best Management Practices of Bhutan, Vol I &
+        III).</p>
+      <ul>
+        <li>
+          <strong>Micro Zone 3.1. Forest Management Unit (FMU):</strong> Means an area of State Reserved Forest Land
+          designated for scientific management of forest (FNCA, 2023).
+        </li>
+        <li>
+          <strong>Micro Zone 3.2. Community Forests (CF):</strong> Means any area of State Reserved Forest Land designated
+          for management by a local community (FNCA, 2023).
+        </li>
+      </ul>
+    
+      <h2>Macro Zone 4: Nature Conservation Area (NCA)</h2>
+      <p>Means any designated area that is primarily established for the conservation and protection of natural ecosystems,
+        biodiversity, and ecological processes to safeguard unique or sensitive habitats, endangered species, or areas of
+        high ecological value. It includes areas declared to be a National Park, Wildlife Reserve, Nature Reserve, Protected
+        Forest, Biosphere Reserve, Critical Watershed, Biological Corridor or any other area meriting protection. The
+        primary focus in these areas is the preservation of natural resources, including flora, fauna, landscapes, and
+        natural features, while restricting or regulating human activities that may harm or disrupt the ecosystems (FNCRR,
+        2017).</p>
+      <ul>
+        <li>
+          <strong>Micro Zone 4.1. Protected Area (PA):</strong> Means an area, which has been declared to be a National
+          Park, Wildlife Reserve, Nature Reserve, Protected Forest, Biosphere Reserve, Nature Reserve, Strict Nature
+          Reserve, Critical Watershed, Biological Corridor, or any other area meriting protection (FNCA, 2023).
+          <ul>
+            <li>
+              <strong>Nano Zone 4.1.1. National Park:</strong> Means large natural or near natural areas set aside to
+              protect large-scale ecological processes, along with the complement of species and ecosystems characteristic
+              of the area, which also provide a foundation for environmentally and culturally compatible spiritual,
+              scientific, educational, recreational and visitor opportunities (Forest & Nature Conservation Code, 2021).
+            </li>
+            <li>
+              <strong>Nano Zone 4.1.2. Wildlife Sanctuary:</strong> Is an area where animal habitats and their surroundings
+              are protected from any sort of disturbance (Forest & Nature Conservation Rules & Regulations, 2017).
+            </li>
+            <li>
+              <strong>Nano Zone 4.1.3. Strict Nature Reserve:</strong> Means protected areas that are strictly set aside to
+              protect biodiversity and possibly geological/ geomorphological features, where human visitation, use and
+              impacts are strictly controlled and limited to ensure protection of the conservation values. Such protected
+              areas can serve as indispensable reference areas for scientific research and monitoring (Forest & Nature
+              Conservation Code, 2021).
+            </li>
+            <li>
+              <strong>Nano Zone 4.1.4. Biological Corridor:</strong> Means an area set aside to connect one or more
+              Protected Areas (Forest & Nature Conservation Rules & Regulations, 2017).
+            </li>
+            <li>
+              <strong>Nano Zone 4.1.5. Botanical Park:</strong> Are those areas that are preserved and maintained for
+              in-situ conservation of floral diversities.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Micro Zone 4.2. Other Effective Area-based Conservation Measures (OECM):</strong> Are areas achieving the
+          long-term and effective in-situ conservation of biodiversity outside of protected areas (IUCN).
+          <ul>
+            <li>
+              <strong>Nano Zone 4.2.1. Key Biodiversity Area (KBA):</strong> Means sites contributing significantly to the
+              global persistence of biodiversity (IUCN, 2016). In the context of Bhutan, the word ‘global’ in this
+              definition may be replaced with ‘national’ when deemed necessary, and ‘sites’ shall refer to ‘areas outside
+              protected areas’. As such, KBAs are sites outside protected area networks, contributing significantly to the
+              global and/or national persistence of biodiversity.
+            </li>
+            <li>
+              <strong>Nano Zone 4.2.3. High Conservation Value:</strong> High Conservation Value (HCV) is an approach to
+              enable informed decision-making [decision makers] on how to maintain the important cultural and natural
+              heritage found outside the protected area system (National Interpretation for the Identification of High
+              Conservation Values in Bhutan, 2022).
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Micro Zone 4.3. Significant Watershed:</strong> Refer to an area which is drained by a river or its
+          tributaries, and which protects the supply of water for drinking, irrigation, flood control, hydroelectric
+          projects, and related purposes.
+          <ul>
+            <li>
+              <strong>Nano Zone 4.3.1. Critical Watershed:</strong> Means any area critical for protecting the supply of
+              water for drinking, irrigation, flood control, hydroelectric projects or related purposes which has been
+              declared to be a critical watershed by the Parliament (Forest & Nature Conservation Rules & Regulations,
+              2017).
+            </li>
+            <li>
+              <strong>Nano Zone 4.3.2. Potential Recharge Area:</strong> Shall mean a land area in which water percolates
+              through the soil to recharge under aquifers that forms marsh, fen, bog, peatland or water, whether natural or
+              artificial, permanent or temporary, with water that is static or flowing, fresh or brackish, including snow
+              and glaciers, etc. (Draft FNC Bill, 2021).
+            </li>
+            <li>
+              <strong>Nano Zone 4.3.3. Payment for Ecosystem Services:</strong> Refers to a “pay for performance” approach
+              to financing the conservation of natural resources whereby Ecosystem Services (ES) providers receive payments
+              (economic incentives) from ES beneficiaries/users that are conditional on specific conservation performance.
+              The common types of PES schemes include watershed services, biodiversity protection, scenic/landscape beauty,
+              carbon sequestration and bundled ecosystem services (Watershed Management Division, MoAF, 2017).
+            </li>
+            <li>
+              <strong>Nano Zone 4.3.4. Water Sources:</strong> These are point data recorded above the water tapping point,
+              an inventory of water sources currently used for drinking, irrigation and commercial purposes by our people in
+              all the 20 Dzongkhags.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Micro Zone 4.4. Wetland:</strong> Means areas of marsh, fen, bog, peatland or water, whether natural or
+          artificial, permanent or temporary, with water that is static or flowing, fresh or brackish, including snow and
+          glaciers.
+          <ul>
+            <li>
+              <strong>Nano Zone 4.4.1. Ramsar site:</strong> Ramsar Sites are wetlands of international importance that have
+              been designated under the criteria of the Ramsar Convention on Wetlands for containing representative, rare or
+              unique wetland types or for their importance in conserving biological diversity (Ramsar Convention, 1971).
+            </li>
+            <li>
+              <strong>Nano Zone 4.4.2. Wetland of national importance (including wetland catering to water
+                sources):</strong> Includes any wetland (marsh, fen, bog, peatland or water, whether natural or artificial,
+              permanent or temporary, with water that is static or flowing, fresh or brackish, including snow and glaciers,
+              etc.) that may have spiritual/religious, cultural, socio-economic, habitat of endangered, rare, endemic flora
+              and fauna, etc.
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+          <h2>Macro Zone 5: Industrial</h2>
+          <p>It refers to a tract of land developed and sub-divided into plots according to a comprehensive plan with the provision of roads, transportation and public utilities, sometimes with common facilities as well, for use by a group of manufacturers (UNIDO, 2019).</p>
+          <ul>
+              <li>
+                  <strong>Micro Zone 5.1. Manufacturing and Production Industry:</strong> Refers to physical and chemical transformation of materials or components into new products whether the work is performed by power-driven machine or by hand, whether it is done in a factory or in the worker’s home, and whether the products are sold wholesale or retail. The Manufacturing and Production Industry includes:
+                  <ul>
+                      <li>Mineral and Chemical based industry (heavy industries such as Ferro alloys, silicon, lime manufacturing, etc).</li>
+                      <li>Agro and Food-based industry (Poultry processing, breweries, food and beverage processing, production of drink and bottled water, etc).</li>
+                      <li>Wood and Forest-based industry (Integrated Wood Based activities, bamboo products, furniture house).</li>
+                      <li>Other industries (Plastic based industry, manufacture of pipes, trays, textiles, bricks).</li>
+                      <li>Electricity generation (hydropower projects).</li>
+                  </ul>
+              </li>
+              <li>
+                  <strong>Micro Zone 5.2. Service Industry:</strong> The Service Industry covers all the activities where labor is the main input and the activity is geared towards meeting the direct needs. The service industry includes hotels, consultancies and hiring, repairs and maintenance, transport and communication, financial and insurance services, and education and medical services (MoIT, 1994).
+              </li>
+              <li>
+                  <strong>Micro Zone 5.3. Existing Mines:</strong> Means land covered under a mining lease (Mines and Mineral Management Act, 1995).
+              </li>
+          </ul>
+
+          <h2>Macro Zone 6: Cultural Heritage</h2>
+          <p>The cultural heritage zone comprises of immovable cultural property, heritage sites and intangible cultural heritage (Cultural Heritage Bill of Bhutan, 2016).</p>
+          <ul>
+              <li>
+                  <strong>Micro Zone 6.1. Religious Sites:</strong> Means sites which may not be categorized as heritage sites but hold religious importance like new temples, registered under Zhung Dratshang or religious organizations recognized by the law. Religious sites also include old Dzongs and Lhakhangs which hold both religious and heritage value. Example: Wangditse Lhakhang, Tashichho Dzong (DoCDD, 2023).
+              </li>
+              <li>
+                  <strong>Micro Zone 6.2. Heritage Village:</strong> Means designated village for cultural, historical, scientific, or other forms of significance that forms the part of national heritage landscape. Example: Rinchengang in Wangdue Phodrang, Trong village in Zhemgang (DoCDD, 2023).
+              </li>
+              <li>
+                  <strong>Micro Zone 6.3. Heritage Conservation Zone:</strong> Heritage Conservation zone is defined as the area surrounding the Registered Heritage Building or the Designated Heritage Building that contribute to enhance the cultural heritage values of the Registered Heritage Building or the Designated Heritage Building and may include few cadastral private plots, cultural elements and natural features such as land, cliff, forest, gorges, river, lake, rock, cave, tree and other geological formations (DoCDD, 2023).
+              </li>
+          </ul>
+    
+          <div>
+            <h2>Macro Zone 7: Urban</h2>
+            <p>The Local Government Act of Bhutan 2014 designates urban areas as Dzongkhag and Dzongkhag Yenlag Thromde. However, urban zones within the context of this edition are defined based on approved boundaries, which initially originated from the 2010 limits but have been expanded or adjusted over time. The boundaries are determined by the Department of Human Settlements (DHS), considering relevant factors such as urban growth, adoption of new planning boundaries, and conversion of rural land to urban precincts. These boundaries are not limited to a specific year but encompass various versions implemented on the ground. Under NLUZ, all micro zones and land uses within the urban zones are classified as urban, regardless of their development status. The management of micro zones is facilitated through a structural plan developed and implemented by the DHS. These areas, no longer included in the rural land database maintained by NLCS, undergo land pooling or reconfiguration to ensure planned and guided development. It is important to note that while some urban areas may not be fully developed, their land is maintained in an urban registry to accommodate future growth and development. The hybrid approach to urban zones in NLUZ considers multiple boundary versions and relies on the implementation of a structural plan to guide land use and promote sustainable urban development.</p>
+        </div>
+        
+        <div>
+            <h2>Macro Zone 8: Rangeland</h2>
+            <p>Rangelands in Bhutan are synonymous with the term “Tsamdro”, which basically means grazing land for livestock and wild ungulates (DoL, 2017). As per Land Act 2007, “Tsamdro” means the Government Reserved Forests land leased out (TUT) for grazing and improved pasture management as land use on the ground. The rangelands in Bhutan extend from subtropical zones in the south to the alpine zones in the northern parts of the country. The subtropical and temperate rangelands are found at elevations ranging from 150 to 3600 metres asl and the alpine meadows are found at an elevation range of 3600 – 5000 metres asl. However, in future editions, Rangeland shall subsume alpine shrubs, meadows, moraines, shrubs, snow and glaciers as well for inclusive land use and land cover management purposes, in concurrence with the Royal Command conveyed on 19th October 2017 towards achieving the four broad objectives of EPIC (Environmental conservation; Preserving & promoting culture; Integrity of territorial security and independence; and Conserving environment).</p>
+            <p>There are about 20 multi-sectoral agencies who are directly or indirectly involved in some activities in the rangelands, mostly in a piece-meal uncoordinated manner and in silos. These activities include, for NLCS to carry out Tsamdro survey and mapping; DoL’s program support to herders and livestock; DoFPS’s administration and management of forests flora and fauna; NBC’s biodiversity initiatives; DAMC’s support to the Bhutan Yak Federation and Yak Cooperatives; DoW and NCHM initiatives in managing wetlands and cryospheres; DoT’s eco-tourism initiatives; RBA’s border surveillance; DoE’s electrification/energy supports; and other allied agencies in diverse extant and nature of supports. While the uncoordinated initiatives by different agencies are done with the best of intentions, they do not help weave an overall fabric that is sustainable and beneficial to the country in the long run.</p>
+            <p>In the meantime, the number of yak herders are in decline, young highlanders migrate to urban areas, grazing grounds are getting depleted and there are no signs of progressive improvement in the livelihood of the highlanders. For example, of the about 12,000 highland households in the 11 highland Dzongkhags, only 1,053 households own and herd yaks. Therefore, there is a compelling need for all the players to collaborate and co-create values through a well-coordinated effort. This recognition of Rangelands as a major land use is an attempt to bring all stakeholders onboard, towards harnessing the hidden potentials of Rangelands and Tsamdros for the larger national interests.</p>
+        </div>
+           
+        <div>
+          <h2>Macro Zone 9: Strategic Development</h2>
+          
+          <ul>
+              <li>
+                  <strong>Micro Zone 9.1. Special Administrative Region (SAR):</strong> Means demarcated geographic areas contained within a country’s national boundaries where the rules of businesses are different from those that prevail in the national territory. In practice, SARs may have more specific objectives, such as attracting foreign investment, targeting specific sectors, promoting exports, products, or “cross-cutting“ activities such as research and development (‘Land Tenure and Development’ Technical Committee, 2022).
+              </li>
+              
+              <li>
+                  <strong>Micro Zone 9.2. Prospective Industries:</strong> Means sectors or areas of production, manufacturing and service industries in nature that are expected to experience significant growth, development, or expansion in the future from a strategic stance (TWG, 2023).
+                  <ul>
+                      <li>
+                          <strong>Nano Zone 9.2.1. Proposed Industrial Park:</strong> These are the potential sites to promote industries in future as and when needed. These sites are identified in consensus with a multi-sectoral team composed of relevant departments/agencies (DoI, 2023).
+                      </li>
+                      <li>
+                          <strong>Nano Zone 9.2.2. Prospective Mineral Zone:</strong> Refers to an area that has been identified as having the potential to contain economically viable mineral deposits (DGM, 2023).
+                      </li>
+                      <li>
+                          <strong>Nano Zone 9.2.3. Potential Sites for STOL (short take-off and landing) Airport Development:</strong> The prospective airstrips present in the document are the locations which have the potential to become airstrips based on a study undertaken by BCAA, NLCS & DoAT. The study is very preliminary in nature and is based on desktop analysis using Google Earth and CartoSat DEM. Land selection criteria based on land gradient and flight funnel obstructions were carried out and subsequent analysis led to the recommendation of these potential sites with varying degrees of advantages and disadvantages (DoAT, 2023).
+                      </li>
+                      <li>
+                          <strong>Nano Zone 9.2.4. Prospective Energy Plans:</strong> According to the Power System Management Plan 2040 report, prospective energy plan means the overall hydropower potential including the techno-economic potential of the country considering the availability of the detailed hydrological information & data based on the newly established hydrological network and advanced planning technologies (DoE, 2019).
+                      </li>
+                  </ul>
+              </li>
+              
+              <li>
+                  <strong>Micro Zone 9.3. Alienable Land:</strong> Tentative developable state land identified and mapped considering slope, proximity to water source, distance from urban centers, land use land cover, nature protection, hazard and approved settlement plans. These alienable lands shall constitute the land identified by the rehabilitation program, local government and pilot conducted in Samtse Dzongkhag using the MCDA approach (TWG, 2023).
+                  <ul>
+                      <li>
+                          <strong>Nano Zone 9.3.1. Alienable Large-Scale Farming:</strong> Refers to an alienable state land with 10 acres and above located within an altitude of 2000 msl and slope of within 30 degrees feasible for large-scale commercial agriculture farming (DoA, 2023).
+                      </li>
+                  </ul>
+              </li>
+              
+              <li>
+                  <strong>Micro Zone 9.4. Aesthetic Strategic Area:</strong> For the purpose of security, aesthetic and conservation point of view, certain areas are maintained either in the form of buffer or key land uses (TWG, 2023).
+                  <ul>
+                      <li>
+                          <strong>Nano Zone 9.4.1. Gyalsung Visibility Area:</strong> As per the instruction of Gyalsung Academy, all the state land, especially the peaks surrounding and overlooking the Bongdema Gyalsung site, is to be put under a green zone where the construction won't be allowed (NS/Tareythang/Gen-01/744 dated 18th October, 2021).
+                      </li>
+                  </ul>
+              </li>
+              
+              <li>
+                  <strong>Micro Zone 9.5. Human Settlement Plans:</strong> Refers to a comprehensive and strategic blueprint that outlines the systematic development and management of urban and rural areas within the country. It is a well-structured document prepared by the Department of Human Settlement under the Ministry of Infrastructure and Transport, aiming to guide and regulate the growth and transformation of towns, villages, and urban regions in a sustainable manner. The human settlement plan includes National Spatial Plan, Regional Spatial Plan and Local Spatial Plan such as Valley Development Plan, Structure Plan, Local Area Plan and Action Area Plan (TWG, 2023).
+                  <ul>
+                      <li>
+                          <strong>Nano Zone 9.5.1. Prospective Towns & Urban Area:</strong> Refers to the towns and urban regions identified by the Department of Human Settlement, where any human settlement plans such as structural plan, valley development plan, local area plan, etc., have not been implemented on the ground, both in the core and periphery areas. Additionally, these areas still have their cadastral database managed under the rural land database maintained by NLCS (TWG, 2023).
+                      </li>
+                      <li>
+                          <strong>Nano Zone 9.5.2. National Capital Region:</strong> Towards sustainable development and expansion of national capital territory concerning its carrying capacity over the time, the National Capital Region (NCR) plan has been initiated with hosts of designated activities that would offload especially to peripheral and crossover towards Paro and across. Activities underscore, viz. industries, auto city, wholesale market and storage, military based and police, satellite towns/villages, olympic city and of similar scopes (DHS and TWG, 2023).
+                      </li>
+                      <li>
+                          <strong>Nano Zone 9.5.3. Linked Urban Centres (LUC):</strong> The LUC is a concept in which a combination of two towns creates a centre for social services, markets and economic activities in a region (The Project for Formulation of Comprehensive Development Plan for Bhutan 2030 Volume I, 2019).
+                      </li>
+                      <li>
+                          <strong>Nano Zone 9.5.4. Thimphu-Paro Regional Strategy:</strong> This refers to the Regional Spatial Strategy for the Thimphu Paro Region - part of the National Capital City Region - which extends from the North Wang Chhu River/Kabesa Valley, to the Upper Paro and Dopshari Valleys. The Strategy established a sustainable Basis for Planning as a range of population and employment figures which constitute the estimated limit of sustainable growth in the region/ It also establishes a regional spatial framework which outlines the possible spatial distribution of the Basis for Planning, following the principles of ‘good growth in the right places’ (Thimphu Paro Regional Strategy, 2023).
+                      </li>
+                  </ul>
+              </li>
+          </ul>
+      </div>
+          
+    
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-5">
+      <div class="row">
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Section1</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 1</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 2</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 3</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 4</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 5</a></li>
+          </ul>
+        </div>
+  
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Section2</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 1</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 2</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 3</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 4</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 5</a></li>
+          </ul>
+        </div>
+  
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Section3</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 1</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 2</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 3</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 4</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 5</a></li>
+          </ul>
+        </div>
+  
+        <div class="col-md-5 offset-md-1 mb-3">
+            <h5>Contract us:</h5>
+            <p>info@nluzsdss.com</p>
+            <p>123-456-7890</p>
+            <h5>Visit us:</h5>
+            <p>500 Innovation Avenue, Data City</p>
+        </div>
+      </div>
+  
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+        <p>&copy; 2024 NLUZ SDSS. All rights reserved.</p>
+        <ul class="list-unstyled d-flex">
+          <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+          <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+          <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+        </ul>
+      </div>
+    </footer>
+
+
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="./assets/js/offcanvas-navbar.js"></script>
+</body>
+
+</html>

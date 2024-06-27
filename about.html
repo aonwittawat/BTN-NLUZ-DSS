@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+  <script src="./assets/js/color-modes.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The NLUZ Spatial Decision Support System aims to bring a geographic information system to a decision-support platform promoting the use of geographic information and not the GIS technologies.">
+  <meta name="author" content="United Nations Satellite Centre (UNOSAT)">
+  <!-- ICON -->
+  <link rel="icon" href="./assets/favicon.ico" sizes="32x32" type="image/vnd.microsoft.icon">
+  <title>About | National Land Use Zoning</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .bi {
+      vertical-align: -.125em;
+      fill: currentColor;
+    }
+
+    .btn-bd-primary {
+      --bd-violet-bg: #712cf9;
+      --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+      --bs-btn-font-weight: 600;
+      --bs-btn-color: var(--bs-white);
+      --bs-btn-bg: var(--bd-violet-bg);
+      --bs-btn-border-color: var(--bd-violet-bg);
+      --bs-btn-hover-color: var(--bs-white);
+      --bs-btn-hover-bg: #6528e0;
+      --bs-btn-hover-border-color: #6528e0;
+      --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+      --bs-btn-active-color: var(--bs-btn-hover-color);
+      --bs-btn-active-bg: #5a23c8;
+      --bs-btn-active-border-color: #5a23c8;
+    }
+
+    .bd-mode-toggle {
+      z-index: 1500;
+    }
+
+    .bd-mode-toggle .dropdown-menu .active .bi {
+      display: block !important;
+    }
+  </style>
+
+
+  <!-- Custom styles for this template -->
+  <link href="./assets/css/offcanvas-navbar.css" rel="stylesheet">
+</head>
+
+<body class="bg-body-tertiary">
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="check2" viewBox="0 0 16 16">
+      <path
+        d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+    </symbol>
+    <symbol id="circle-half" viewBox="0 0 16 16">
+      <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+    </symbol>
+    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+      <path
+        d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+      <path
+        d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z" />
+    </symbol>
+    <symbol id="sun-fill" viewBox="0 0 16 16">
+      <path
+        d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+    </symbol>
+  </svg>
+
+  <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
+      aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+      <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
+        <use href="#circle-half"></use>
+      </svg>
+      <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+      <li>
+        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+          aria-pressed="false">
+          <svg class="bi me-2 opacity-50" width="1em" height="1em">
+            <use href="#sun-fill"></use>
+          </svg>
+          Light
+          <svg class="bi ms-auto d-none" width="1em" height="1em">
+            <use href="#check2"></use>
+          </svg>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+          aria-pressed="false">
+          <svg class="bi me-2 opacity-50" width="1em" height="1em">
+            <use href="#moon-stars-fill"></use>
+          </svg>
+          Dark
+          <svg class="bi ms-auto d-none" width="1em" height="1em">
+            <use href="#check2"></use>
+          </svg>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto"
+          aria-pressed="true">
+          <svg class="bi me-2 opacity-50" width="1em" height="1em">
+            <use href="#circle-half"></use>
+          </svg>
+          Auto
+          <svg class="bi ms-auto d-none" width="1em" height="1em">
+            <use href="#check2"></use>
+          </svg>
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">
+    <div class="container-fluid">
+      <img class="me-3" src="./assets/images/NLCS-logo.png" alt="" width="50" height="50">
+      <a class="navbar-brand" href="#">National Land Use Zoning</a>
+      <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Maps</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./download.html">Downloads</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Projects</a>
+          </li>
+        </ul>
+        <button class="btn btn-outline-light px-3" type="button">Get in Touch</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <section class="py-5 text-center container">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="display-2 fw-bold">About Us</h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION NLUZ ZONES -->
+    <section class="p-4 p-md-4 text-body-secondary">
+        <h3>Background</h3>
+        <p>The National Land Use Zoning Project for its entire baseline report creation collected many data from multiple stakeholders that could be used to enhance any spatial-based decision making in the country. NLUZ desires to achieve the following objectives:</p>
+        <ul>
+            <li>To establish a harmonized national land use system in the country;</li>
+            <li>To revalidate and delineate designated areas and macro land uses for better management;</li>
+            <li>To designate dysfunctional and functional land uses for any categories of development based on capability and suitability;</li>
+            <li>To establish a sound online database and maps of national zoning to facilitate a scientific-based decision-making process;</li>
+            <li>To make optimum, rational, and sustainable use of limited arable land by discouraging competition and avoiding land use conflicts;</li>
+            <li>To facilitate the establishment of spatial/land use ordinances; and</li>
+            <li>To provide a scientific basis for governance and decision-making process.</li>
+        </ul>
+    
+        <h3>NLUZ Spatial Decision Support System</h3>
+        <p>The NLUZ Spatial Decision Support System aims to bring a geographic information system to a decision-support platform promoting the use of geographic information and not the GIS technologies. This system will understand the decision maker, data users, data, and types of decision to be enhanced and delivered.</p>
+    
+        <h3>Vision</h3>
+        <p><strong>Unlocking Land Harmony: Harnessing Geo-Informatics Technology for Seamless Land Management and Conflict Resolution</strong></p>
+        <p>“Single window access towards geo-enabling nation with par excellence land governance”</p>
+        <p>This vision statement encapsulates the idea of using Geo-Informatics technology to facilitate smooth and efficient land administration and management processes while also addressing conflicts related to land use involving the community as stakeholders in the process.</p>
+    
+        <h3>Guiding Principles</h3>
+        <h4>1. User-Centricity</h4>
+        <ul>
+            <li>Focus on the needs and expectations of the users.</li>
+            <li>Prioritize features that will provide the most value to users.</li>
+            <li>Make the system easy to use and understand. Design a user interface that is intuitive and user-friendly.</li>
+            <li>Involve the community in land use planning and decision making.</li>
+            <li>Provide clear and concise documentation.</li>
+        </ul>
+    
+        <h4>2. Data-Driven</h4>
+        <ul>
+            <li>Ensure the quality and accuracy of your data (implement data cleaning and quality control procedures).</li>
+            <li>Organize your data efficiently for easy access and analysis.</li>
+            <li>Use appropriate visualizations to communicate data insights effectively.</li>
+            <li>Make data analysis tools and models accessible to users.</li>
+        </ul>
+    
+        <h4>3. Openness and Interoperability</h4>
+        <ul>
+            <li>Make your system interoperable with other software and platforms.</li>
+            <li>Provide open access to data and analysis results where appropriate.</li>
+            <li>Collaborate with other developers and stakeholders to build a robust SDSS ecosystem.</li>
+        </ul>
+        <h4>4. Sustainability:</h4>
+        <ul>
+            <li>Design your system for long-term maintenance and support.</li>
+            <li>Develop a plan for ongoing data updates and improvements.</li>
+            <li>Build a community of users and developers who can contribute to the system's development.</li>
+        </ul>
+        
+        <h3>Points of Contact</h3>
+        <h4>I. Project Coordinator</h4>
+        <p>Samten Dhendup</p>
+        
+        <h4>II. Project Manager</h4>
+        <p>PPD</p>
+        
+        <h4>III. Technical Manager</h4>
+        <p>Chokila</p>
+        
+        <h4>IV. Project Team</h4>
+        <ul>
+            <li>Chencho Tshering, GID</li>
+            <li>Tika Chhetri, GID</li>
+            <li>Dorji Phuntsho, GID</li>
+            <li>Sonam Deki, RLD</li>
+            <li>Tshewang Gyeltshen, LMD</li>
+            <li>Phuntsho Namgay, CID</li>
+            <li>Jigme Namgyel, TSD</li>
+            <li>Sangay Nidup, GID</li>
+        </ul>
+        
+        <h4>V. System Developer</h4>
+        <p>UNITAR and NLCS Team</p>
+
+    </section>    
+
+    <!-- FOOTER -->
+    <footer class="py-5">
+      <div class="row">
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Section1</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 1</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 2</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 3</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 4</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 5</a></li>
+          </ul>
+        </div>
+  
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Section2</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 1</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 2</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 3</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 4</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 5</a></li>
+          </ul>
+        </div>
+  
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Section3</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 1</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 2</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 3</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 4</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Link 5</a></li>
+          </ul>
+        </div>
+  
+        <div class="col-md-5 offset-md-1 mb-3">
+            <h5>Contract us:</h5>
+            <p>info@nluzsdss.com</p>
+            <p>123-456-7890</p>
+            <h5>Visit us:</h5>
+            <p>500 Innovation Avenue, Data City</p>
+        </div>
+      </div>
+  
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+        <p>&copy; 2024 NLUZ SDSS. All rights reserved.</p>
+        <ul class="list-unstyled d-flex">
+          <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+          <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+          <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+        </ul>
+      </div>
+    </footer>
+
+
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="./assets/js/offcanvas-navbar.js"></script>
+</body>
+
+</html>
