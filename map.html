@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <!-- ICON -->
+    <link rel="icon" href="./assets/images/favicon.ico" sizes="32x32" type="image/vnd.microsoft.icon">
+    <!-- TITLE -->
+    <title>National Land Use Zoning Decision Support System</title>
+    <!-- META -->
+    <meta property="og:title" content="National Land Use Zoning Decision Support System">
+    <meta property="og:description" content="The NLUZ Spatial Decision Support System aims to bring a geographic information system to a decision-support platform promoting the use of geographic information and not the GIS technologies">
+    <meta property="og:url" content="https://aonwittawat.github.io/BTN-NLUZ-DSS/index.html">
+    <meta property="og:image" content="https://aonwittawat.github.io/BTN-NLUZ-DSS/assets/app.png">
+
+    <!-- CALCITE -->
+    <script src="https://js.arcgis.com/calcite-components/2.10.1/calcite.esm.js" type="module"></script>
+    <link rel="stylesheet" href="https://js.arcgis.com/calcite-components/2.10.1/calcite.css" />
+
+    <!-- ArcGIS API for JavaScript-->
+    <script src="https://js.arcgis.com/4.30/"></script>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.30/esri/themes/light/main.css" />
+
+    <!-- APPLICATION -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/map-style.css">
+    <script src="./assets/js/map.js"></script>
+</head>
+
+<body class="calcite-mode-light">
+    <calcite-shell>
+        <!-- HEADER -->
+        <calcite-navigation slot="header">
+            <!-- ICON -->
+            <calcite-action slot="navigation-action" compact>
+                <img src="./assets/images/NLCS-logo.png" style="width:50px;height:50px;" alt="NLCS logo">
+            </calcite-action>
+            <!-- <calcite-action slot="navigation-action" compact>
+                <img src="./assets/images/UNOSAT ICON NO TEXT BLUE.svg" style="width:40px;height:50px;" alt="UNOSAT logo">
+            </calcite-action> -->
+            <!-- TITLE AND SNIPPET -->
+            <calcite-navigation-logo slot="logo" heading="Application Title" description="application description"></calcite-navigation-logo>
+            <!-- SHARE AND INFO ACTIONS -->
+            <!-- <calcite-action slot="content-end" id="app-share-action" appearance="transparent" scale="m" title="share current options..." text="share current options" icon="link"></calcite-action> -->
+            <calcite-action slot="content-end" id="app-details-action" appearance="transparent" scale="m" title="app details..." text="app details" icon="information"></calcite-action>
+        </calcite-navigation>
+
+        <!-- LEFT PANEL-->
+        <calcite-shell-panel slot="panel-start" position="start">
+            <calcite-panel headingx="Details">
+                <div id="layers-container"></div>
+            </calcite-panel>
+        </calcite-shell-panel>
+
+        <!-- CENTER -->
+        <div id="center-container">
+            <div id="view-container"></div>
+        </div>
+
+        <!-- APP DETAILS MODAL -->
+        <calcite-modal id="app-details-modal" slot="modals" kind="brand" scale="m" width="m">
+            <h3 slot="header">About this application</h3>
+            <div slot="content" class="application-description"></div>
+            <div slot="back">
+            <calcite-label layout="inline">
+                National Land Commission – NLCS
+            </calcite-label>
+            </div>
+        </calcite-modal>
+    </calcite-shell>
+
+    <!-- LOADER -->
+    <calcite-loader id="app-loader" type="indeterminate" scale="l" text="...loading..."></calcite-loader>
+
+    <!-- MAP LOADER -->
+    <calcite-loader id="map-loader" type="indeterminate" scale="s" hidden></calcite-loader>
+</body>
+
+</html>
